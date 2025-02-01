@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">Business Card</string>
+
+    <string name="activity_main_fab_add_business_card">Add a new Business Card</string>
+
+    <string name="activity_add_business_card_name">Name</string>
+    <string name="activity_add_business_card_role">Role</string>
+    <string name="activity_add_business_card_company_name">Company Name</string>
+    <string name="activity_add_business_card_email">Email</string>
+    <string name="activity_add_business_card_phone">Phone</string>
+    <string name="activity_add_business_card_save">Save</string>
+
+</resources>
