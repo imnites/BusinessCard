@@ -24,7 +24,6 @@ import androidx.compose.ui.Alignment
 
 @Composable
 fun HomeScreen(navController: NavHostController) {
-  // Use SnackbarHostState for Material 3
   val snackbarHostState = remember { SnackbarHostState() }
   val coroutineScope = rememberCoroutineScope()
 
@@ -37,7 +36,6 @@ fun HomeScreen(navController: NavHostController) {
 
   val users = userViewModel.allUsers.observeAsState(emptyList())
 
-  // Custom Scaffold-like layout
   Box(modifier = Modifier.fillMaxSize()) {
     // Content
     LazyColumn(
@@ -55,7 +53,7 @@ fun HomeScreen(navController: NavHostController) {
         }
       } else {
         items(users.value, key = { it.id }) { u ->
-          PersonListItem(
+          UserListScreen(
             person = Person(u.id, u.name, u.role, u.companyName, u.email),
             onEditClick = {
               navController.navigate("editUser/${u.id}")

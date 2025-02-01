@@ -20,18 +20,16 @@ import com.swe.businesscard.viewmodel.UserViewModelFactory
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun AddEditUserScreen(
-  userId: Int? = null,  // Optional: will be null if it's "Add" mode
+  userId: Int? = null,
   navController: NavHostController,
   userViewModel: UserViewModel = viewModel(factory = UserViewModelFactory((LocalContext.current.applicationContext as BusinessCard).repository))
 ) {
-  // State variables for the form
   val name = remember { mutableStateOf("") }
   val role = remember { mutableStateOf("") }
   val companyName = remember { mutableStateOf("") }
   val email = remember { mutableStateOf("") }
   val phone = remember { mutableStateOf("") }
 
-  // If editing, load user details from ViewModel
   userId?.let {
     val user = userViewModel.getUserById(it).observeAsState().value
     user?.let {
@@ -43,10 +41,9 @@ fun AddEditUserScreen(
     }
   }
 
-  // Handle form submission
   val onSaveClick = {
     val updatedUser = User(
-      id = userId ?: 0,  // If userId is null, it's an "Add" operation
+      id = userId ?: 0,
       name = name.value,
       role = role.value,
       companyName = companyName.value,
@@ -55,12 +52,11 @@ fun AddEditUserScreen(
     )
 
     if (userId == null) {
-      userViewModel.addUser(updatedUser)  // Add new user
+      userViewModel.addUser(updatedUser)
     } else {
-      userViewModel.updateUser(updatedUser)  // Update existing user
+      userViewModel.updateUser(updatedUser)
     }
 
-    // Navigate back to home screen
     navController.popBackStack()
   }
 
@@ -84,7 +80,7 @@ fun AddEditUserScreen(
         .padding(paddingValues)
         .padding(16.dp)
     ) {
-      // Text fields for name, role, etc.
+
       TextField(
         value = name.value,
         onValueChange = { name.value = it },

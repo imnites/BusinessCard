@@ -21,7 +21,7 @@ data class Person(
 
 
 @Composable
-fun PersonListItem(
+fun UserListScreen(
   person: Person,
   onRowClick: (Person) -> Unit,
   onEditClick: () -> Unit,
@@ -40,7 +40,6 @@ fun PersonListItem(
       verticalAlignment = Alignment.CenterVertically,
       horizontalArrangement = Arrangement.SpaceBetween
     ) {
-      // Left side: Name, Role & Company, Email
       Column(
         modifier = Modifier.weight(1f)
       ) {
@@ -63,7 +62,6 @@ fun PersonListItem(
         )
       }
 
-      // Right side: Edit and Delete buttons
       Row {
         IconButton(onClick = onEditClick) {
           Icon(

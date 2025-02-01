@@ -21,7 +21,7 @@ class UserViewModel(private val userRepository: UserRepository) : ViewModel() {
 
   fun restoreUser(user: User) {
     viewModelScope.launch {
-      userRepository.addUser(user) // Assuming addUser() method adds a user back
+      userRepository.addUser(user)
     }
   }
 

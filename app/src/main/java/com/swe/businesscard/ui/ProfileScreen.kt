@@ -1,8 +1,5 @@
 package com.swe.businesscard.ui
 
-import android.os.Bundle
-import androidx.activity.viewModels
-import androidx.appcompat.app.AppCompatActivity
 import com.swe.businesscard.R
 import com.swe.businesscard.viewmodel.UserViewModel
 import com.swe.businesscard.viewmodel.UserViewModelFactory
@@ -14,55 +11,13 @@ import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
-import androidx.compose.ui.graphics.painter.Painter
 import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.text.font.FontWeight
-import androidx.compose.ui.tooling.preview.Preview
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
-import com.swe.businesscard.ui.theme.UIComponentTheme
-import androidx.activity.compose.setContent
-import androidx.compose.material3.Surface
-import androidx.compose.runtime.getValue
 import androidx.compose.runtime.livedata.observeAsState
 import androidx.compose.ui.platform.LocalContext
 import androidx.lifecycle.viewmodel.compose.viewModel
-
-//class DetailActivity : AppCompatActivity() {
-//
-//  // Use the factory to create the ViewModel
-//  private val userViewModel: UserViewModel by viewModels {
-//    UserViewModelFactory((application as BusinessCard).repository)
-//  }
-//
-//  override fun onCreate(savedInstanceState: Bundle?) {
-//    super.onCreate(savedInstanceState)
-//
-//    val userId = intent.getIntExtra("USER_ID", -1)
-//
-//    if (userId != -1) {
-//      userViewModel.getUserById(userId).observe(this) { user ->
-//        setContent {
-//          UIComponentTheme {
-//            Surface(
-//              modifier = Modifier.fillMaxSize(),
-//              color = MaterialTheme.colorScheme.background
-//            ) {
-//              ProfileScreen(
-//                logo = painterResource(id = R.drawable.ic_launcher_foreground), // Replace with your logo resource
-//                name = user.name,
-//                role = user.role,
-//                phoneNumber = user.phone,
-//                socialMedia = "@johndoe",
-//                email = "johndoe@example.com"
-//              )
-//            }
-//          }
-//        }
-//      }
-//    }
-//  }
-//}
 
 @Composable
 fun ProfileScreen(
@@ -143,18 +98,3 @@ fun ProfileScreen(
     }
   }
 }
-
-//@Preview(showBackground = true)
-//@Composable
-//fun DetailActivityPreview() {
-//  UIComponentTheme {
-//    ProfileScreen(
-//      logo = painterResource(id = R.drawable.ic_launcher_foreground), // Replace with your logo resource
-//      name = "John Doe",
-//      role = "Software Engineer",
-//      phoneNumber = "+1 234 567 890",
-//      socialMedia = "@johndoe",
-//      email = "johndoe@example.com"
-//    )
-//  }
-//}
