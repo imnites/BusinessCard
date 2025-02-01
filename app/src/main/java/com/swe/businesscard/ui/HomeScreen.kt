@@ -61,13 +61,12 @@ fun HomeScreen(navController: NavHostController) {
             onDeleteClick = {
               userViewModel.deleteUser(u.id)
 
-              // Show Snackbar after deletion
               coroutineScope.launch {
                 val result = snackbarHostState.showSnackbar(
                   message = "User deleted successfully",
-                  actionLabel = "Undo"
+                  actionLabel = "Undo",
+                  duration = SnackbarDuration.Short
                 )
-                // Handle undo if clicked
                 if (result == SnackbarResult.ActionPerformed) {
                   userViewModel.restoreUser(u)
                 }
@@ -84,7 +83,9 @@ fun HomeScreen(navController: NavHostController) {
 
     SnackbarHost(
       hostState = snackbarHostState,
-      modifier = Modifier.align(Alignment.BottomCenter)
+      modifier = Modifier
+        .align(Alignment.BottomCenter)
+        .padding(bottom = 80.dp)
     )
 
     FloatingActionButton(
@@ -102,3 +103,4 @@ fun HomeScreen(navController: NavHostController) {
     }
   }
 }
+
